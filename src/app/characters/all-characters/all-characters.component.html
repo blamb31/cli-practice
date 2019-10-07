@@ -1,0 +1,17 @@
+<h1>Here's A List Of All The Pokemon</h1>
+
+<div *ngIf='nextUrl$ | async as nextUrl '>
+    <button *ngIf='nextUrl' (click)='updatePokemon(nextUrl)'class="btn">Next Page</button>
+</div>
+
+<div *ngIf='prevUrl$ | async as prevUrl ' >
+        <button *ngIf='prevUrl' (click)='updatePokemon(prevUrl)' class="btn">Previous Page</button>
+    </div>
+
+<div class=card >
+    <div *ngFor='let pokemon of pokemon$ | async'>
+        <a [routerLink]="['/characters', pokemon.name]"><h3 >
+            {{ pokemon.name}}
+        </h3></a>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div *ngIf='currentUrl$ | async as currentUrl'>
+    <a [routerLink]="['/characters']"><p class="customButton" >Back</p></a>
+
+</div>
+
+<!-- <button *ngIf='pokemon$ | async as pokemon' ><a [routerLink]="['/characters', pokemon.order]">Prev</a></button> -->
+<!-- <button *ngIf='pokemon$ | async as pokemon' (click)='nextClicked(pokemon.order)'><a [routerLink]="['/characters', pokemon.order]"></a>Prev</a></button> -->
+<button *ngIf='pokemon$ | async as pokemon' ><a [routerLink]="['/characters', pokemon.order]">Next</a></button>
+
+<div class="card" *ngIf='pokemon$ |async as pokemon'>
+    <h1>Name: {{pokemon.name | uppercase}}</h1>
+    <img src={{pokemon.sprites.front_default}} width='250px'/>
+    <h2>Type: {{pokemon.types[0].type.name |uppercase}}</h2>
+    <h4>Height: {{pokemon.height}} Feet</h4>
+    <h4>Weight: {{pokemon.weight}} Pounds</h4>
+    <h6>Order: {{pokemon.order}}</h6>
+
+</div>
+
