@@ -3,9 +3,6 @@
 
 </div>
 
-<!-- <button *ngIf='pokemon$ | async as pokemon' ><a [routerLink]="['/characters', pokemon.order]">Prev</a></button> -->
-<!-- <button *ngIf='pokemon$ | async as pokemon' (click)='nextClicked(pokemon.order)'><a [routerLink]="['/characters', pokemon.order]"></a>Prev</a></button> -->
-<button *ngIf='pokemon$ | async as pokemon' ><a [routerLink]="['/characters', pokemon.order]">Next</a></button>
 
 <div class="card" *ngIf='pokemon$ |async as pokemon'>
     <h1>Name: {{pokemon.name | uppercase}}</h1>

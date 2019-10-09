@@ -28,24 +28,11 @@ export class CharacterComponent implements OnInit {
       tap((params: Params) => console.log(params, "before 1st tap")),
       switchMap((params: Params) => {
         console.log('in switchmap', params)
-        if(+params.name){
-          let id: number = +params.name
-          return this._pokeService.getPokemonById(id)
-        }
-        else{
           return this._pokeService.getPokemonByName(params.name)
-        }
       })
     )
   }
-  
-  nextClicked(id: string) {
-    return this._pokeService.getPokemonById(+id + 1)
-  }
 
-  prevClicked(id: string) {
-    return this._pokeService.getPokemonById(+id - 1)
-  }
 
 
 }

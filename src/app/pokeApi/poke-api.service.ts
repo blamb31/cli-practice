@@ -21,13 +21,11 @@ export class PokeApiService {
   private currentPokemonPage: string = this.basePokemonUrl;
   private currentUrlBs: BehaviorSubject<string> = new BehaviorSubject<string>(this.currentPokemonPage)
   public currentUrl$: Observable<string> = this.currentUrlBs.asObservable()
-  
-  // getAllPokemon(url:string =this.baseUrl) {
-  //   return this._http.get(url).pipe(
-  //     map( (data:any) => data.results)
-  //   )
-  // }
 
+  private currentPokemonName: string = this.basePokemonUrl;
+  private currentNameBs: BehaviorSubject<string> = new BehaviorSubject<string>(this.currentPokemonPage)
+  public currentName$: Observable<string> = this.currentUrlBs.asObservable()
+  
   getPokemonPage(url:string =this.basePokemonUrl) {
     this.currentPokemonPage = url
     this.currentUrlBs.next(this.currentPokemonPage)
@@ -51,17 +49,6 @@ export class PokeApiService {
     return this._http.get(`${this.basePokemonUrl}/${name}`)
   }
 
-  getNextPokemonById(id:string) {
-    return this._http.get(`${this.basePokemonUrl}/${+id + 1}`)
-  }
-
-  getPrevPokemonById(id:string) {
-    return this._http.get(`${this.basePokemonUrl}/${+id - 1}`)
-  }
-
-  getPokemonById(id:number) {
-    return this._http.get(`${this.basePokemonUrl}/${+id - 1}`)
-  }
 
   constructor(private _http: HttpClient) { }
 }
